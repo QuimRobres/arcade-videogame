@@ -62,7 +62,6 @@ function removeLevelOneScreen() {
 }
 
 //LEVEL TWO
-//Level One
 function createLevelTwoScreen() {
   levelTwoScreen = buildDom(`
     <main class="level-two-container">
@@ -87,8 +86,8 @@ function createLevelTwoScreen() {
   return levelTwoScreen;
 }
 
-function removeLevelOneScreen() {
-  levelOneScreen.remove();
+function removeLevelTwoScreen() {
+  levelTwoScreen.remove();
 }
 //GAME OVER LOSER SCREEN----------------------------------
 function createGameOverLoserScreen(score) {
@@ -113,13 +112,13 @@ function removeGameOverLoserScreen() {
 function createGameOverWinnerScreen(score) {
   gameOverWinnerScreen = buildDom(`
         <main class="winner-screen">
-            <h1>VICTORY!</h1>
+            <h1>PHASE 1 COMPLETE!</h1>
             <p>Your dead count:<span>${score}</span></p>
             <button>Let's do some more killing!!!</button>
         </main>
     `);
   const button = gameOverWinnerScreen.querySelector("button");
-  button.addEventListener("click", startGame);
+  button.addEventListener("click", startLevelTwo);
   document.body.appendChild(gameOverWinnerScreen);
 }
 
@@ -127,12 +126,32 @@ function removeGameOverWinnerScreen() {
   gameOverWinnerScreen.remove();
 }
 
+//FINAL VICTORY SCREEN
+function createGameOverFinalScreen(score) {
+  gameOverFinalScreen = buildDom(`
+        <main class="final-screen">
+            <h1>YOU'VE DEFEATED THE ENEMY!</h1>
+            <p>Your dead count:<span>${score}</span></p>
+            <button>RESTART!!!</button>
+        </main>
+    `);
+  const button = gameOverFinalScreen.querySelector("button");
+  button.addEventListener("click", restart);
+  document.body.appendChild(gameOverFinalScreen);
+}
+
+function removeGameOverFinalScreen() {
+  gameOverFinalScreen.remove();
+}
+
 //START GAME ------------
 startGame = () => {
   removeSplashScreen();
+  
   if (gameOverLoserScreen) {
     removeGameOverLoserScreen();
   }
+ 
   
   createLevelOneScreen();
   game = new LevelOne(levelOneScreen);
@@ -147,6 +166,13 @@ startLevelTwo = () => {
   game.start();
 }
 
+restart = () => {
+  removeGameOverFinalScreen();
+  createLevelOneScreen();
+  game = new LevelOne(levelOneScreen);
+  game.start();
+}
+
 //END GAME -----------
 function endGame(score, victory) {
   if (victory === true) {
@@ -158,5 +184,14 @@ function endGame(score, victory) {
   }
 }
 
+function endGameLevelTwo(score, victory) {
+  if (victory === true) {
+    removeLevelTwoScreen();
+    createGameOverFinalScreen(score);
+  } else {
+    removeLevelTwoScreen();
+    createGameOverLoserScreen(score);
+  }
+}
 //LOADER
 window.addEventListener("load", createSplashScreen);

@@ -125,7 +125,7 @@ class LevelTwo {
               bullet.x = 0 - bullet.size;
               //Add Points if enemy killed;
               this.score += 15;
-              if (this.score >= 1000) {
+              if (this.score >= 100) {
                 this.victory = true;
                 this.gameOver();
                 console.log("youwin");
@@ -162,11 +162,11 @@ class LevelTwo {
     
       gameOver() {
         if (this.victory) {
-          endGame(this.score, this.victory);
+          endGameLevelTwo(this.score, this.victory);
           this.gameIsOver = true;
         } else {
           this.gameIsOver = true;
-          endGame(this.score, this.victory);
+          endGameLevelTwo(this.score, this.victory);
         }
       }
       updateGameStats() {

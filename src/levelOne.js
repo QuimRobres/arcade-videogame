@@ -42,7 +42,7 @@ class LevelOne {
         console.log("right");
       }
       if (event.key === "q") {
-        const newBullet = new Bullet(this.canvas, this.hero.x, this.hero.y);
+        const newBullet = new Bullet(this.canvas, this.hero.x, this.hero.y, -1);
         this.bulletHero.push(newBullet);
         console.log("fire");
       }
@@ -76,16 +76,16 @@ class LevelOne {
       //Hero Shots
       this.bulletHero = this.bulletHero.filter((bullet) => {
         bullet.updatePosition();
-        return bullet.isInsideScreen();
+        //return bullet.isInsideScreen();
       });
       this.bulletEnemy = this.bulletEnemy.filter((bullet) => {
           bullet.updatePosition();
-          return bullet.isInsideScreen();
+          //return bullet.isInsideScreen();
       })
       this.enemies = this.enemies.filter((enemy) => {
         //funcio dispar enemic
         if (Math.random() > 0.99) {
-            const newEnemyBullet = new EnemyBullet(this.canvas, enemy.x, enemy.y);
+            const newEnemyBullet = new Bullet(this.canvas, enemy.x, enemy.y, 1);
             this.bulletEnemy.push(newEnemyBullet);
         };
         enemy.updatePosition();
