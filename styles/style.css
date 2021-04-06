@@ -1,0 +1,53 @@
+
+/*LEVEL ONE*/
+.level-one-container canvas {
+    background-color: green;
+}
+
+.level-one-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/*Level TWO*/
+.level-two-container canvas {
+    background-color: green;
+}
+
+.level-two-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;    
+}
+
+
+
+/*SPLASH SCREEN*/
+.splash-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 250px;
+}
+
+/*WINNER SCREEN*/
+.winner-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 250px;
+}
+
+/*LOSER SCREEN*/
+.loser-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 250px;
+}
