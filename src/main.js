@@ -17,7 +17,7 @@ function buildDom(htmlString) {
 function createSplashScreen() {
   splashScreen = buildDom(`
     <main class="splash-screen">
-        <h1>Project Sueñorl</h1>
+        <h1>ARCADE GAME</h1>
         <button>Kill 'em all!!</button>
     </main>
     `);

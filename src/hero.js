@@ -5,7 +5,8 @@ class Hero {
 
     this.health = health;
 
-    (this.size = 50), (this.x = 300);
+    this.size = 50 
+    this.x = 300 - this.size;
     this.y = 900 - this.size - 5;
 
     this.direction = 0;

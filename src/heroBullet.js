@@ -7,26 +7,35 @@ class Bullet {
     this.x = positionX;
     this.y = positionY;
 
-    this.direction = 0;
-    this.speed = 15;
-    
-}
+    this.direction = direction;
+    this.speed = 10;
+  }
 
-draw() {
+  draw() {
     if (this.direction === -1) {
-        this.ctx.fillStyle = "#FF6F27";
-    this.ctx.fillRect(this.x, this.y, this.size, this.size);
+      this.ctx.fillStyle = "#FF6F27";
     } else if (this.direction === 1) {
-        this.ctx.fillStyle = "#FF6F50";
-    this.ctx.fillRect(this.x, this.y, this.size, this.size);
+      this.ctx.fillStyle = "#FF6F50";
     }
-}
+    this.ctx.fillRect(this.x, this.y, this.size, this.size);
+  }
 
-updatePosition() {
+  updatePosition() {
+    this.y += this.speed * this.direction;
+    
+  }
+
+  isInsideScreen() {
     if (this.direction === -1) {
-        this.y -= this.speed * this.direction;
+      const bulletBottom = this.y + this.size;
+      const screenTop = 0;
+      const isInside = bulletBottom > screenTop;
+      return isInside;
     } else if (this.direction === 1) {
-        this.y += this.speed * this.direction;
-    } 
-}
+      const bulletTop = this.y;
+      const screenBottom = 900;
+      const isInside = bulletTop < screenBottom;
+      return isInside;
+    }
+  }
 }

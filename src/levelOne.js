@@ -16,16 +16,13 @@ class LevelOne {
   }
 
   start() {
-    //.-------CORRECTE--------------
     this.healthElement = this.levelOneScreen.querySelector(".health .value");
     this.scoreElement = this.levelOneScreen.querySelector(".score .value");
-    //---------CORRECTE---------------
+   
     this.canvas = this.levelOneScreen.querySelector("canvas");
     this.ctx = this.canvas.getContext("2d");
-    //-----------CORRECTE------------
-    this.canvasContainer = this.levelOneScreen.querySelector(
-      ".canvas-container"
-    );
+  
+    this.canvasContainer = this.levelOneScreen.querySelector(".canvas-container");
     this.containerWidth = 600;
     this.containerHeight = 900;
     this.canvas.setAttribute("width", this.containerWidth);
@@ -55,6 +52,7 @@ class LevelOne {
 
   startLoop() {
     const loop = () => {
+      console.log(this.bulletEnemy)
       //Spawn enemies-----------
       if (this.enemies.length < 15) {
         if (Math.random() > 0.98) {
@@ -76,11 +74,11 @@ class LevelOne {
       //Hero Shots
       this.bulletHero = this.bulletHero.filter((bullet) => {
         bullet.updatePosition();
-        //return bullet.isInsideScreen();
+        return bullet.isInsideScreen();
       });
       this.bulletEnemy = this.bulletEnemy.filter((bullet) => {
           bullet.updatePosition();
-          //return bullet.isInsideScreen();
+          return bullet.isInsideScreen();
       })
       this.enemies = this.enemies.filter((enemy) => {
         //funcio dispar enemic
@@ -136,8 +134,10 @@ class LevelOne {
   }
   //COLLISIONS WITH THE ENEMY
   checkCollisions() {
+    
     this.bulletEnemy.forEach((bullet) => {
         if (this.hero.bulletImpact(bullet)) {
+          console.log("balaenemiga")
           this.hero.removeHealth();
 
           bullet.x = 0 - bullet.size;
