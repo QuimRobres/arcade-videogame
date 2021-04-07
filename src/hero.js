@@ -5,12 +5,18 @@ class Hero {
 
     this.health = health;
 
-    this.size = 50 
+    this.size = 50;
+
     this.x = 300 - this.size;
     this.y = 900 - this.size - 5;
 
     this.direction = 0;
     this.speed = 30;
+    //sprites
+    this.heroImg = new Image();
+    this.heroImg.src = "/images/herosprite.png";
+    this.frames = 12;
+    this.framesIndex = 0;
 
     
   }
@@ -43,13 +49,33 @@ class Hero {
     this.health -= 1;
   }
 
-  draw() {
-    this.heroImg = new Image();
-    this.heroImg.src = "/images/heroe.gif"
-    this.ctx.drawImage(this.heroImg, this.x, this.y)
+  draw(framesCounter) {
+    this.ctx.drawImage(
+      this.heroImg,
+      0, 
+      this.framesIndex * Math.floor(this.heroImg.height / this.frames),
+      this.heroImg.width,
+      Math.floor(this.heroImg.height / this.frames),
+      this.x, 
+      this.y,
+      
+      this.size,
+      this.size,
+      );
+      this.animate(framesCounter);
     /*
     this.ctx.fillstyle = "#66D3FA";
     this.ctx.fillRect(this.x, this.y, this.size, this.size);*/
+  }
+
+  animate(framesCounter){
+    if(framesCounter % 10 === 0) {
+      this.framesIndex++;
+      
+      if(this.framesIndex > 11) {
+        this.framesIndex = 0;
+      }
+    }
   }
 
   //collision with enemy;

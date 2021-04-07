@@ -13,6 +13,9 @@ class LevelOne {
     this.bulletHero = [];
     this.bulletEnemy = [];
     this.enemyCounter = 0;
+
+    //sprites
+    this.framesCounter = 0;
   }
 
   start() {
@@ -52,7 +55,9 @@ class LevelOne {
 
   startLoop() {
     const loop = () => {
-      console.log(this.bulletEnemy)
+      //sprites
+      this.framesCounter++;
+      
       //Spawn enemies-----------
       if (this.enemies.length < 15) {
         if (Math.random() > 0.98) {
@@ -91,7 +96,7 @@ class LevelOne {
       });
 
       this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-      this.hero.draw();
+      this.hero.draw(this.framesCounter);
       //BULLET DRAW
       this.bulletHero.forEach((bullet) => {
         bullet.draw();
@@ -102,7 +107,7 @@ class LevelOne {
       })
       //ENEMY DRAW
       this.enemies.forEach((enemy) => {
-        enemy.draw();
+        enemy.draw(this.framesCounter);
       });
 
       if (!this.gameIsOver) {

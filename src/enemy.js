@@ -8,14 +8,40 @@ class Enemy {
     this.y = 0;
 
     this.speed = speed;
+    //sprites
+    this.enemyImg = new Image();
+    this.enemyImg.src = "/images/enemysprite.png"
+    this.frames = 12;
+    this.framesIndex = 0;
   }
 
-  draw() {
-    this.enemyImg = new Image();
-    this.enemyImg.src = "/images/enemy.gif"
-    this.ctx.drawImage(this.enemyImg, this.x, this.y);
-    /*this.ctx.fillStyle = "#FF6F27";
+  draw(framesCounter) {
+    this.ctx.drawImage(
+      this.enemyImg,
+      0, 
+      this.framesIndex * Math.floor(this.enemyImg.height / this.frames),
+      this.enemyImg.width,
+      Math.floor(this.enemyImg.height / this.frames),
+      this.x, 
+      this.y,
+      
+      this.size,
+      this.size,
+      );
+      this.animate(framesCounter);
+    /*
+    this.ctx.fillstyle = "#66D3FA";
     this.ctx.fillRect(this.x, this.y, this.size, this.size);*/
+  }
+
+  animate(framesCounter){
+    if(framesCounter % 10 === 0) {
+      this.framesIndex++;
+      
+      if(this.framesIndex > 11) {
+        this.framesIndex = 0;
+      }
+    }
   }
 
   updatePosition() {
