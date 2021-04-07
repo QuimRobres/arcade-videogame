@@ -11,7 +11,7 @@ class Enemy {
     //sprites
     this.enemyImg = new Image();
     this.enemyImg.src = "/images/enemysprite.png"
-    this.frames = 12;
+    this.frames = 7;
     this.framesIndex = 0;
   }
 
@@ -38,7 +38,7 @@ class Enemy {
     if(framesCounter % 10 === 0) {
       this.framesIndex++;
       
-      if(this.framesIndex > 11) {
+      if(this.framesIndex > 6) {
         this.framesIndex = 0;
       }
     }

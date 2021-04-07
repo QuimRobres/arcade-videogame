@@ -14,6 +14,8 @@ class LevelOne {
     this.bulletEnemy = [];
     this.enemyCounter = 0;
 
+    this.bulletSound = document.getElementById("hero-shoot-sound");
+
     //sprites
     this.framesCounter = 0;
   }
@@ -44,6 +46,8 @@ class LevelOne {
       if (event.key === "q") {
         const newBullet = new Bullet(this.canvas, this.hero.x, this.hero.y, -1);
         this.bulletHero.push(newBullet);
+        
+        this.bulletSound.play();
         console.log("fire");
       }
     }
@@ -125,13 +129,12 @@ class LevelOne {
       this.bulletHero.forEach((bullet) => {
         if (enem.isImpacted(bullet)) {
           enem.x = 0 - enem.size;
-          bullet.x = 0 - bullet.size;
-          //Add Points if enemy killed;
+          bullet.x = -20 - bullet.size;
           this.score += 15;
-          if (this.score >= 1000) {
+          //Add Points if enemy killed;
+          if (this.score > 1000) {
             this.victory = true;
             this.gameOver();
-            console.log("youwin");
           }
         }
       });
@@ -142,7 +145,7 @@ class LevelOne {
     
     this.bulletEnemy.forEach((bullet) => {
         if (this.hero.bulletImpact(bullet)) {
-          console.log("balaenemiga")
+
           this.hero.removeHealth();
 
           bullet.x = 0 - bullet.size;

@@ -17,6 +17,8 @@ class Hero {
     this.heroImg.src = "/images/herosprite.png";
     this.frames = 12;
     this.framesIndex = 0;
+    //sounds
+    
 
     
   }

@@ -13,6 +13,8 @@ class LevelTwo {
     this.bulletHero = [];
     this.bulletEnemy = [];
     this.enemyCounter = 0;
+    //Sprites
+    this.framesCounter = 0;
   }
 
   start() {
@@ -55,6 +57,7 @@ class LevelTwo {
 
   startLoop() {
     const loop = () => {
+      this.framesCounter++;
       //Spawn enemies-----------
       if (this.enemies.length < 15) {
         if (Math.random() > 0.98) {
@@ -93,18 +96,18 @@ class LevelTwo {
       });
 
       this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-      this.hero.draw();
+      this.hero.draw(this.framesCounter);
       //BULLET DRAW
       this.bulletHero.forEach((bullet) => {
-        bullet.draw();
+        bullet.draw(this.framesCounter);
       });
 
       this.bulletEnemy.forEach((bullet) => {
-        bullet.draw();
+        bullet.draw(this.framesCounter);
       });
       //ENEMY DRAW
       this.enemies.forEach((enemy) => {
-        enemy.draw();
+        enemy.draw(this.framesCounter);
       });
 
       if (!this.gameIsOver) {
@@ -122,10 +125,10 @@ class LevelTwo {
       this.bulletHero.forEach((bullet) => {
         if (enem.isImpacted(bullet)) {
           enem.x = 0 - enem.size;
-          bullet.x = 0 - bullet.size;
+          bullet.x = -20 - bullet.size;
           //Add Points if enemy killed;
           this.score += 15;
-          if (this.score >= 2500) {
+          if (this.score > 2500) {
             this.victory = true;
             this.gameOver();
             console.log("youwin");

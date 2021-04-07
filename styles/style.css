@@ -1,8 +1,23 @@
+@font-face {
+    font-family: "Orbitron";
+    src: url("https://fonts.googleapis.com/css2?family=Orbitron&display=swap");
+}
 
 /*LEVEL ONE*/
 body {
     background-image: url("/images/arcadebackground.jpg");
     color: white;
+    font-family: "Orbitron";
+}
+
+body button {
+    font-family: "Orbitron";
+    font-size: 2em;
+    padding: 20px;
+    color: white;
+    text-shadow: -2px 0 #00ff9f, 0 2px #00ff9f, 2px 0 #00ff9f, 0 -2px #00ff9f;
+    background-color: black;
+    
 }
 .level-one-container canvas {
     background-color: black;
@@ -13,11 +28,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    
+    flex-direction: column;   
 }
 
-
+/*WINNER SCREEN*/
+.winner-screen p {
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    font-size: 2em;
+}
 
 /*Level TWO*/
 .level-two-container canvas {
@@ -41,6 +59,8 @@ body {
     align-items: center;
     flex-direction: column;
     padding-top: 250px;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    font-size: 1em;
 }
 
 /*WINNER SCREEN*/
@@ -50,6 +70,8 @@ body {
     align-items: center;
     flex-direction: column;
     padding-top: 250px;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    font-size: 1em;
 }
 
 /*LOSER SCREEN*/
@@ -59,6 +81,8 @@ body {
     align-items: center;
     flex-direction: column;
     padding-top: 250px;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    font-size: 1em;
 }
 
 /*FINAL SCREEN*/
@@ -67,5 +91,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding-top: 250px;   
+    padding-top: 250px;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    font-size: 1em;   
 }

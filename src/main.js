@@ -6,6 +6,7 @@ let levelTwoScreen
 let gameOverLoserScreen;
 let gameOverWinnerScreen;
 
+
 //Function to create HTML elements
 function buildDom(htmlString) {
   const tempDiv = document.createElement("div");
@@ -18,7 +19,7 @@ function createSplashScreen() {
   splashScreen = buildDom(`
     <main class="splash-screen">
         <h1>ARCADE GAME</h1>
-        <button>Kill 'em all!!</button>
+        <button>PLAY</button>
     </main>
     `);
 
@@ -26,7 +27,7 @@ function createSplashScreen() {
 
   const startButton = splashScreen.querySelector("button");
 
-  startButton.addEventListener("click", startGame);
+  startButton.addEventListener("click", startGame, );
 }
 
 function removeSplashScreen() {
@@ -49,6 +50,9 @@ function createLevelOneScreen() {
         <div class="score">
             <span class="label">Enemies Killed:</span>
             <span class="value"></span>
+        </div>
+        <div>
+        <audio id="hero-shoot-sound" preload="auto" controls="none" src="sounds/151020__bubaproducer__laser-shot-big-4.wav"></audio>
         </div>
     </main>
     `);
@@ -79,6 +83,9 @@ function createLevelTwoScreen() {
             <span class="label">Enemies Killed:</span>
             <span class="value"></span>
         </div>
+        <div>
+        <audio id="hero-shoot-sound" preload="auto" controls="none" src="sounds/151020__bubaproducer__laser-shot-big-4.wav"></audio>
+        </div>
     </main>
     `);
 
@@ -93,7 +100,7 @@ function removeLevelTwoScreen() {
 function createGameOverLoserScreen(score) {
   gameOverLoserScreen = buildDom(`
         <main class="loser-screen">
-            <h1>DEFEATED!</h1>
+            <h1>DEFEATED</h1>
             <p>Your dead count:<span>${score}</span></p>
             <button>Let's kill again!!!</button>
         </main>
@@ -112,9 +119,9 @@ function removeGameOverLoserScreen() {
 function createGameOverWinnerScreen(score) {
   gameOverWinnerScreen = buildDom(`
         <main class="winner-screen">
-            <h1>PHASE 1 COMPLETE!</h1>
-            <p>Your dead count:<span>${score}</span></p>
-            <button>Let's do some more killing!!!</button>
+            <h1>PHASE 1 COMPLETE</h1>
+            <p>SCORE:<span>${score}</span></p>
+            <button>NEXT LEVEL</button>
         </main>
     `);
   const button = gameOverWinnerScreen.querySelector("button");
@@ -130,9 +137,9 @@ function removeGameOverWinnerScreen() {
 function createGameOverFinalScreen(score) {
   gameOverFinalScreen = buildDom(`
         <main class="final-screen">
-            <h1>YOU'VE DEFEATED THE ENEMY!</h1>
+            <h1>YOU'VE DEFEATED THE ENEMY</h1>
             <p>Your dead count:<span>${score}</span></p>
-            <button>RESTART!!!</button>
+            <button>RESTART</button>
         </main>
     `);
   const button = gameOverFinalScreen.querySelector("button");

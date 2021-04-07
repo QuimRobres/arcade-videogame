@@ -18,7 +18,8 @@ class Bullet {
     this.enemyBullet.src = "/images/enemybulletsprite.png"
     
     this.frames = 6;
-    this.framesIndex = 0; 
+    this.framesIndex = 0;
+    //Fire-rate
   }
 
   draw(framesCounter) {
