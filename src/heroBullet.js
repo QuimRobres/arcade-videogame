@@ -13,11 +13,15 @@ class Bullet {
 
   draw() {
     if (this.direction === -1) {
-      this.ctx.fillStyle = "#FF6F27";
+      this.bulletImg = new Image();
+      this.bulletImg.src = "/images/herobullet.gif";
+      this.ctx.drawImage(this.bulletImg, this.x, this.y);
     } else if (this.direction === 1) {
-      this.ctx.fillStyle = "#FF6F50";
+      this.bulletImg = new Image();
+      this.bulletImg.src = "/images/enemybullet.gif";
+      this.ctx.drawImage(this.bulletImg, this.x + this.size/2, this.y + 10);
     }
-    this.ctx.fillRect(this.x, this.y, this.size, this.size);
+  
   }
 
   updatePosition() {

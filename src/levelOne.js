@@ -123,7 +123,7 @@ class LevelOne {
           bullet.x = 0 - bullet.size;
           //Add Points if enemy killed;
           this.score += 15;
-          if (this.score >= 100) {
+          if (this.score >= 1000) {
             this.victory = true;
             this.gameOver();
             console.log("youwin");

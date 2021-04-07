@@ -44,8 +44,12 @@ class Hero {
   }
 
   draw() {
+    this.heroImg = new Image();
+    this.heroImg.src = "/images/heroe.gif"
+    this.ctx.drawImage(this.heroImg, this.x, this.y)
+    /*
     this.ctx.fillstyle = "#66D3FA";
-    this.ctx.fillRect(this.x, this.y, this.size, this.size);
+    this.ctx.fillRect(this.x, this.y, this.size, this.size);*/
   }
 
   //collision with enemy;

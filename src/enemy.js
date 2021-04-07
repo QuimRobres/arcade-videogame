@@ -11,8 +11,11 @@ class Enemy {
   }
 
   draw() {
-    this.ctx.fillStyle = "#FF6F27";
-    this.ctx.fillRect(this.x, this.y, this.size, this.size);
+    this.enemyImg = new Image();
+    this.enemyImg.src = "/images/enemy.gif"
+    this.ctx.drawImage(this.enemyImg, this.x, this.y);
+    /*this.ctx.fillStyle = "#FF6F27";
+    this.ctx.fillRect(this.x, this.y, this.size, this.size);*/
   }
 
   updatePosition() {
