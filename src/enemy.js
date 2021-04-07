@@ -5,7 +5,7 @@ class Enemy {
 
     this.size = 45;
     this.x = randomX;
-    this.y = 0;
+    this.y = 0 - this.size;
 
     this.speed = speed;
     //sprites

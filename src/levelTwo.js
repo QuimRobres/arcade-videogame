@@ -13,6 +13,9 @@ class LevelTwo {
     this.bulletHero = [];
     this.bulletEnemy = [];
     this.enemyCounter = 0;
+
+    this.bulletSound = document.getElementById("hero-shoot-sound");
+    this.enemySound = document.getElementById("enemy-shoot-sound");
     //Sprites
     this.framesCounter = 0;
   }
@@ -46,7 +49,9 @@ class LevelTwo {
       if (event.key === "q") {
         const newBullet = new Bullet(this.canvas, this.hero.x, this.hero.y, -1);
         this.bulletHero.push(newBullet);
-        console.log("fire");
+        this.bulletSound.pause();
+        this.bulletSound.currentTime = 0;
+        this.bulletSound.play();
       }
     }
     const boundHandleKeyDown = handleKeyDown.bind(this);
@@ -59,7 +64,7 @@ class LevelTwo {
     const loop = () => {
       this.framesCounter++;
       //Spawn enemies-----------
-      if (this.enemies.length < 15) {
+      if (this.enemies.length < 25) {
         if (Math.random() > 0.97) {
           const randomX = Math.floor(Math.random() * this.containerWidth);
           if (randomX < 520) {
@@ -90,6 +95,9 @@ class LevelTwo {
         if (Math.random() > 0.97) {
           const newEnemyBullet = new Bullet(this.canvas, enemy.x, enemy.y, 1);
           this.bulletEnemy.push(newEnemyBullet);
+          this.enemySound.pause();
+          this.enemySound.currentTime = 0;
+          this.enemySound.play();
         }
         enemy.updatePosition();
         return enemy.isInsideScreen();

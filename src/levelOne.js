@@ -47,8 +47,10 @@ class LevelOne {
       if (event.key === "q") {
         const newBullet = new Bullet(this.canvas, this.hero.x, this.hero.y, -1);
         this.bulletHero.push(newBullet);
+        this.bulletSound.pause();
+        this.bulletSound.currentTime = 0;
         this.bulletSound.play();
-        console.log("fire");
+        
       }
     }
     const boundHandleKeyDown = handleKeyDown.bind(this);
@@ -94,6 +96,8 @@ class LevelOne {
         if (Math.random() > 0.99) {
             const newEnemyBullet = new Bullet(this.canvas, enemy.x, enemy.y, 1);
             this.bulletEnemy.push(newEnemyBullet);
+            this.enemySound.pause();
+            this.enemySound.currentTime = 0;
             this.enemySound.play();
         };
         enemy.updatePosition();

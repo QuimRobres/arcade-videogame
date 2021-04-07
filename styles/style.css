@@ -17,9 +17,6 @@ body button {
     background-color: black;   
 }
 
-.score p  {
-    font-size: 1em;
-}
 /*LEVEL ONE*/
 .level-one-container canvas {
     background-color: black;
@@ -69,6 +66,9 @@ body button {
     padding-top: 250px;
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
     font-size: 1em;
+}
+.winner-screen span, p{
+    font-size: 2.5rem;
 }
 
 /*LOSER SCREEN*/
