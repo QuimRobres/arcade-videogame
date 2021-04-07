@@ -2,8 +2,6 @@
     font-family: "Orbitron";
     src: url("https://fonts.googleapis.com/css2?family=Orbitron&display=swap");
 }
-
-/*LEVEL ONE*/
 body {
     background-image: url("/images/arcadebackground.jpg");
     color: white;
@@ -16,9 +14,13 @@ body button {
     padding: 20px;
     color: white;
     text-shadow: -2px 0 #00ff9f, 0 2px #00ff9f, 2px 0 #00ff9f, 0 -2px #00ff9f;
-    background-color: black;
-    
+    background-color: black;   
 }
+
+.score p  {
+    font-size: 1em;
+}
+/*LEVEL ONE*/
 .level-one-container canvas {
     background-color: black;
     border: 2px solid #00ff9f;
@@ -31,11 +33,7 @@ body button {
     flex-direction: column;   
 }
 
-/*WINNER SCREEN*/
-.winner-screen p {
-    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-    font-size: 2em;
-}
+
 
 /*Level TWO*/
 .level-two-container canvas {
@@ -49,7 +47,6 @@ body button {
     align-items: center;
     flex-direction: column;    
 }
-
 
 
 /*SPLASH SCREEN*/
@@ -95,3 +92,4 @@ body button {
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
     font-size: 1em;   
 }
+

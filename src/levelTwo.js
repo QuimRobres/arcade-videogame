@@ -60,7 +60,7 @@ class LevelTwo {
       this.framesCounter++;
       //Spawn enemies-----------
       if (this.enemies.length < 15) {
-        if (Math.random() > 0.98) {
+        if (Math.random() > 0.97) {
           const randomX = Math.floor(Math.random() * this.containerWidth);
           if (randomX < 520) {
             const newEnemy = new Enemy(this.canvas, randomX, 5);
@@ -87,7 +87,7 @@ class LevelTwo {
       });
       this.enemies = this.enemies.filter((enemy) => {
         //funcio dispar enemic
-        if (Math.random() > 0.99) {
+        if (Math.random() > 0.97) {
           const newEnemyBullet = new Bullet(this.canvas, enemy.x, enemy.y, 1);
           this.bulletEnemy.push(newEnemyBullet);
         }

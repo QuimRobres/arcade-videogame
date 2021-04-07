@@ -48,11 +48,12 @@ function createLevelOneScreen() {
         </div>
 
         <div class="score">
-            <span class="label">Enemies Killed:</span>
+            <span class="label">POINTS:</span>
             <span class="value"></span>
         </div>
         <div>
-        <audio id="hero-shoot-sound" preload="auto" controls="none" src="sounds/151020__bubaproducer__laser-shot-big-4.wav"></audio>
+        <audio id="hero-shoot-sound" preload="auto" src="sounds/laser7.mp3"></audio>
+        <audio id="enemy-shoot-sound" preoload="auto" src="sounds/laser.mp3"></audio>
         </div>
     </main>
     `);
@@ -80,7 +81,7 @@ function createLevelTwoScreen() {
         </div>
 
         <div class="score">
-            <span class="label">Enemies Killed:</span>
+            <pclass="label">POINTS:</p>
             <span class="value"></span>
         </div>
         <div>

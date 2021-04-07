@@ -15,6 +15,7 @@ class LevelOne {
     this.enemyCounter = 0;
 
     this.bulletSound = document.getElementById("hero-shoot-sound");
+    this.enemySound = document.getElementById("enemy-shoot-sound");
 
     //sprites
     this.framesCounter = 0;
@@ -46,7 +47,6 @@ class LevelOne {
       if (event.key === "q") {
         const newBullet = new Bullet(this.canvas, this.hero.x, this.hero.y, -1);
         this.bulletHero.push(newBullet);
-        
         this.bulletSound.play();
         console.log("fire");
       }
@@ -94,6 +94,7 @@ class LevelOne {
         if (Math.random() > 0.99) {
             const newEnemyBullet = new Bullet(this.canvas, enemy.x, enemy.y, 1);
             this.bulletEnemy.push(newEnemyBullet);
+            this.enemySound.play();
         };
         enemy.updatePosition();
         return enemy.isInsideScreen();
