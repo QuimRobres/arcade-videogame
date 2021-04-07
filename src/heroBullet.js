@@ -9,19 +9,59 @@ class Bullet {
 
     this.direction = direction;
     this.speed = 10;
+
+    //sprites
+    this.heroBullet = new Image();
+    this.heroBullet.src = "/images/herobulletsprite.png"
+
+    this.enemyBullet = new Image();
+    this.enemyBullet.src = "/images/enemybulletsprite.png"
+    
+    this.frames = 6;
+    this.framesIndex = 0; 
   }
 
-  draw() {
+  draw(framesCounter) {
     if (this.direction === -1) {
-      this.bulletImg = new Image();
-      this.bulletImg.src = "/images/herobullet.gif";
-      this.ctx.drawImage(this.bulletImg, this.x, this.y);
+      this.ctx.drawImage(
+        this.heroBullet,
+        0, 
+        this.framesIndex * Math.floor(this.heroBullet.height / this.frames),
+        this.heroBullet.width,
+        Math.floor(this.heroBullet.height / this.frames),
+        this.x + this.size/2, 
+        this.y,
+        
+        this.size,
+        this.size,
+        );
+        this.animate(framesCounter);
     } else if (this.direction === 1) {
-      this.bulletImg = new Image();
-      this.bulletImg.src = "/images/enemybullet.gif";
-      this.ctx.drawImage(this.bulletImg, this.x + this.size/2, this.y + 10);
+      this.ctx.drawImage(
+        this.enemyBullet,
+        0, 
+        this.framesIndex * Math.floor(this.enemyBullet.height / this.frames),
+        this.enemyBullet.width,
+        Math.floor(this.enemyBullet.height / this.frames),
+        this.x, 
+        this.y + 5,
+        
+        this.size,
+        this.size,
+        );
+        this.animate(framesCounter);
     }
   
+  }
+
+  animate(framesCounter){
+    if(framesCounter % 10 === 0) {
+      this.framesIndex++;
+      
+      if(this.framesIndex > 5) {
+        this.framesIndex = 0;
+      }
+    }
   }
 
   updatePosition() {

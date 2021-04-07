@@ -99,11 +99,11 @@ class LevelOne {
       this.hero.draw(this.framesCounter);
       //BULLET DRAW
       this.bulletHero.forEach((bullet) => {
-        bullet.draw();
+        bullet.draw(this.framesCounter);
       });
 
       this.bulletEnemy.forEach((bullet) => {
-          bullet.draw();
+          bullet.draw(this.framesCounter);
       })
       //ENEMY DRAW
       this.enemies.forEach((enemy) => {
