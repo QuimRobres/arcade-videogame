@@ -33,7 +33,7 @@ class Hero {
 
   screenLimits() {
     const screenLeft = 0;
-    const screenRigth = this.canvas.width;
+    const screenRigth = 601;
 
     const heroLeft = this.x;
     const heroRigth = this.x + this.size;

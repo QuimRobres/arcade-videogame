@@ -69,7 +69,7 @@ class LevelOne {
         if (Math.random() > 0.98) {
           const randomX = Math.floor(Math.random() * this.containerWidth);
          
-          if (randomX < 520) {
+          if (randomX < 520 && randomX > 0) {
             const newEnemy = new Enemy(this.canvas, randomX, 5, 0);
             this.enemies.push(newEnemy);
             this.enemyCounter += 1;
