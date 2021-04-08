@@ -47,7 +47,7 @@ class LevelOne {
       if (event.key === "q") {
         const newBullet = new Bullet(this.canvas, this.hero.x, this.hero.y, -1);
         this.bulletHero.push(newBullet);
-        this.bulletSound.volume("0.1")
+        this.bulletSound.volume = 0.1;
         this.bulletSound.pause();
         this.bulletSound.currentTime = 0;
         this.bulletSound.play();
