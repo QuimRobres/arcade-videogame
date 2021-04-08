@@ -47,7 +47,7 @@ class LevelOne {
       if (event.key === "q") {
         const newBullet = new Bullet(this.canvas, this.hero.x, this.hero.y, -1);
         this.bulletHero.push(newBullet);
-        this.bulletSound.volume = 0.2;
+        this.bulletSound.volume = 0.1;
         this.bulletSound.pause();
         this.bulletSound.currentTime = 0;
         this.bulletSound.play();
@@ -99,7 +99,7 @@ class LevelOne {
         if (Math.random() > 0.99 && enemy.y < 900) {
             const newEnemyBullet = new Bullet(this.canvas, enemy.x, enemy.y, 1);
             this.bulletEnemy.push(newEnemyBullet);
-            this.bulletSound.volume = 0.2;
+            this.bulletSound.volume = 0.1;
             this.enemySound.pause();
             this.enemySound.currentTime = 0;
             this.enemySound.play();
@@ -142,7 +142,7 @@ class LevelOne {
           bullet.y = -6;
           this.score += 50;
           //Add Points if enemy killed;
-          if (this.score > 1000) {
+          if (this.score >= 1000) {
             this.victory = true;
             this.gameOver();
           }
