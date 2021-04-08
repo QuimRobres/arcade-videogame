@@ -21,16 +21,17 @@ class LevelTwo {
   }
 
   start() {
-    //.-------CORRECTE--------------
     this.healthElement = this.levelTwoScreen.querySelector(".health .value");
     this.scoreElement = this.levelTwoScreen.querySelector(".score .value");
-    //---------CORRECTE---------------
+
     this.canvas = this.levelTwoScreen.querySelector("canvas");
     this.ctx = this.canvas.getContext("2d");
-    //-----------CORRECTE------------
-    this.canvasContainer = this.levelTwoScreen.querySelector(".canvas-container");
+
+    this.canvasContainer = this.levelTwoScreen.querySelector(
+      ".canvas-container"
+    );
     this.containerWidth = 600;
-    this.containerHeight = 900;
+    this.containerHeight = 898;
     this.canvas.setAttribute("width", this.containerWidth);
     this.canvas.setAttribute("height", this.containerHeight);
 
@@ -80,7 +81,7 @@ class LevelTwo {
       //POSITION UPDATE AND SCREEN LIMITS
       this.hero.updatePosition();
       this.hero.screenLimits();
-      //Hero Shots
+      //Update Bullets positions
       this.bulletHero = this.bulletHero.filter((bullet) => {
         bullet.updatePosition();
         return bullet.isInsideScreen();
@@ -89,8 +90,8 @@ class LevelTwo {
         bullet.updatePosition();
         return bullet.isInsideScreen();
       });
+      //Enemy shoot
       this.enemies = this.enemies.filter((enemy) => {
-        //funcio dispar enemic
         if (Math.random() > 0.98 && enemy.y < 900) {
           const newEnemyBullet = new Bullet(this.canvas, enemy.x, enemy.y, 1);
           this.bulletEnemy.push(newEnemyBullet);
@@ -103,7 +104,7 @@ class LevelTwo {
         enemy.handleScreenCollision();
         return enemy.isInsideScreen();
       });
-
+      //Clear Canvas and Draw Player
       this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
       this.hero.draw(this.framesCounter);
       //BULLET DRAW
@@ -126,32 +127,33 @@ class LevelTwo {
     };
     loop();
   }
-  //CHECK
+  //Check if player bullet impacts enemy
   checkImpact() {
     let enem = 0;
     for (let i = 0; i < this.enemies.length; i++) {
       enem = this.enemies[i];
       this.bulletHero.forEach((bullet) => {
         if (enem.isImpacted(bullet)) {
+          //Remove enemy and bullet.
+          //Increase points.
           enem.y = 912;
           bullet.y = -6;
-          //Add Points if enemy killed;
           this.score += 100;
+          //Check condition to win.
           if (this.score >= 2500) {
             this.victory = true;
             this.gameOver();
-            console.log("youwin");
           }
         }
       });
     }
   }
-  //COLLISIONS WITH THE ENEMY
+  //Check if enemy bullet or enemies impacts Player
   checkCollisions() {
     this.bulletEnemy.forEach((bullet) => {
       if (this.hero.bulletImpact(bullet)) {
+        //Remove bullet and 1 point of health;
         this.hero.removeHealth();
-
         bullet.y = 905;
         if (this.hero.health === 0) {
           this.gameOver();

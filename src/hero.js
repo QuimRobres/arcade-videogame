@@ -17,10 +17,6 @@ class Hero {
     this.heroImg.src = "./images/herosprite.png";
     this.frames = 12;
     this.framesIndex = 0;
-    //sounds
-    
-
-    
   }
 
   setDirection(direction) {
@@ -54,27 +50,24 @@ class Hero {
   draw(framesCounter) {
     this.ctx.drawImage(
       this.heroImg,
-      0, 
+      0,
       this.framesIndex * Math.floor(this.heroImg.height / this.frames),
       this.heroImg.width,
       Math.floor(this.heroImg.height / this.frames),
-      this.x, 
+      this.x,
       this.y,
-      
+
       this.size,
-      this.size,
-      );
-      this.animate(framesCounter);
-    /*
-    this.ctx.fillstyle = "#66D3FA";
-    this.ctx.fillRect(this.x, this.y, this.size, this.size);*/
+      this.size
+    );
+    this.animate(framesCounter);
   }
 
-  animate(framesCounter){
-    if(framesCounter % 10 === 0) {
+  animate(framesCounter) {
+    if (framesCounter % 10 === 0) {
       this.framesIndex++;
-      
-      if(this.framesIndex > 11) {
+
+      if (this.framesIndex > 11) {
         this.framesIndex = 0;
       }
     }
@@ -92,7 +85,6 @@ class Hero {
     const enemyTop = enemy.y;
     const enemyBottom = enemy.y + enemy.size;
 
-
     const crossLeft = enemyLeft <= heroRight && enemyLeft >= heroLeft;
     const crossRight = enemyRight >= heroLeft && enemyRight <= heroRight;
     const crossBottom = enemyBottom >= heroTop && enemyBottom <= heroBottom;
@@ -104,7 +96,7 @@ class Hero {
       return false;
     }
   }
-
+  //collision with bullet
   bulletImpact(bullet) {
     const heroLeft = this.x;
     const heroRight = this.x + this.size;
@@ -115,7 +107,6 @@ class Hero {
     const bulletRight = bullet.x + bullet.size;
     const bulletTop = bullet.y;
     const bulletBottom = bullet.y + bullet.size;
-
 
     const crossLeft = bulletLeft <= heroRight && bulletLeft >= heroLeft;
     const crossRight = bulletRight >= heroLeft && bulletRight <= heroRight;

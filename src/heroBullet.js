@@ -12,54 +12,52 @@ class Bullet {
 
     //sprites
     this.heroBullet = new Image();
-    this.heroBullet.src = "./images/herobulletsprite.png"
+    this.heroBullet.src = "./images/herobulletsprite.png";
 
     this.enemyBullet = new Image();
-    this.enemyBullet.src = "./images/enemybulletsprite.png"
-    
+    this.enemyBullet.src = "./images/enemybulletsprite.png";
+
     this.frames = 6;
     this.framesIndex = 0;
-    //Fire-rate
   }
-
+  //Draws different Sprite deppending on who is firing.
   draw(framesCounter) {
     if (this.direction === -1) {
       this.ctx.drawImage(
         this.heroBullet,
-        0, 
+        0,
         this.framesIndex * Math.floor(this.heroBullet.height / this.frames),
         this.heroBullet.width,
         Math.floor(this.heroBullet.height / this.frames),
-        this.x + this.size/2, 
+        this.x + this.size / 2,
         this.y,
-        
+
         this.size,
-        this.size,
-        );
-        this.animate(framesCounter);
+        this.size
+      );
+      this.animate(framesCounter);
     } else if (this.direction === 1) {
       this.ctx.drawImage(
         this.enemyBullet,
-        0, 
+        0,
         this.framesIndex * Math.floor(this.enemyBullet.height / this.frames),
         this.enemyBullet.width,
         Math.floor(this.enemyBullet.height / this.frames),
-        this.x, 
+        this.x,
         this.y + 5,
-        
-        this.size,
-        this.size,
-        );
-        this.animate(framesCounter);
-    }
-  
-  }
 
-  animate(framesCounter){
-    if(framesCounter % 10 === 0) {
+        this.size,
+        this.size
+      );
+      this.animate(framesCounter);
+    }
+  }
+  //Animation
+  animate(framesCounter) {
+    if (framesCounter % 10 === 0) {
       this.framesIndex++;
-      
-      if(this.framesIndex > 5) {
+
+      if (this.framesIndex > 5) {
         this.framesIndex = 0;
       }
     }
@@ -67,7 +65,6 @@ class Bullet {
 
   updatePosition() {
     this.y += this.speed * this.direction;
-    
   }
 
   isInsideScreen() {

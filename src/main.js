@@ -2,10 +2,9 @@ let levelOne;
 let levelTwo;
 let splashScreen;
 let levelOneScreen;
-let levelTwoScreen
+let levelTwoScreen;
 let gameOverLoserScreen;
 let gameOverWinnerScreen;
-
 
 //Function to create HTML elements
 function buildDom(htmlString) {
@@ -26,8 +25,7 @@ function createSplashScreen() {
   document.body.appendChild(splashScreen);
 
   const startButton = splashScreen.querySelector("button");
-
-  startButton.addEventListener("click", startGame, );
+  startButton.addEventListener("click", startGame);
 }
 
 function removeSplashScreen() {
@@ -85,8 +83,8 @@ function createLevelTwoScreen() {
           <span class="value"></span>
         </div>
         <div>
-        <audio id="hero-shoot-sound" preload="auto" src="./sounds/hero_laser.wav"></audio>
-        <audio id="enemy-shoot-sound" preoload="auto" src="./sounds/enemy_laser.wav"></audio>
+          <audio id="hero-shoot-sound" preload="auto" src="./sounds/hero_laser.wav"></audio>
+          <audio id="enemy-shoot-sound" preoload="auto" src="./sounds/enemy_laser.wav"></audio>
         </div>
     </main>
     `);
@@ -156,12 +154,11 @@ function removeGameOverFinalScreen() {
 //START GAME ------------
 startGame = () => {
   removeSplashScreen();
-  
+
   if (gameOverLoserScreen) {
     removeGameOverLoserScreen();
   }
- 
-  
+
   createLevelOneScreen();
   game = new LevelOne(levelOneScreen);
   game.start();
@@ -173,14 +170,14 @@ startLevelTwo = () => {
   createLevelTwoScreen();
   game = new LevelTwo(levelTwoScreen);
   game.start();
-}
+};
 
 restart = () => {
   removeGameOverFinalScreen();
   createLevelOneScreen();
   game = new LevelOne(levelOneScreen);
   game.start();
-}
+};
 
 //END GAME -----------
 function endGame(score, victory) {
