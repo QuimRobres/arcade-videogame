@@ -47,6 +47,7 @@ class LevelTwo {
       if (event.key === "q") {
         const newBullet = new Bullet(this.canvas, this.hero.x, this.hero.y, -1);
         this.bulletHero.push(newBullet);
+        this.bulletSound.volume = 0.2;
         this.bulletSound.pause();
         this.bulletSound.currentTime = 0;
         this.bulletSound.play();
@@ -93,6 +94,7 @@ class LevelTwo {
         if (Math.random() > 0.98 && enemy.y < 900) {
           const newEnemyBullet = new Bullet(this.canvas, enemy.x, enemy.y, 1);
           this.bulletEnemy.push(newEnemyBullet);
+          this.bulletSound.volume = 0.2;
           this.enemySound.pause();
           this.enemySound.currentTime = 0;
           this.enemySound.play();
