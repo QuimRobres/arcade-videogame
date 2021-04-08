@@ -13,8 +13,8 @@ body button {
     font-family: "Orbitron";
     font-size: 2em;
     padding: 20px;
-    color: white;
-    text-shadow: -2px 0 #bd00ff, 0 2px #bd00ff, 2px 0 #bd00ff, 0 -2px #bd00ff;
+    color: #2a345e;
+    text-shadow: -2px 0 #00ff9f, 0 2px #00ff9f, 2px 0 #00ff9f, 0 -2px #00ff9f;
     background-color: black;   
 }
 
