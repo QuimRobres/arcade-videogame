@@ -3,7 +3,7 @@
     src: url("https://fonts.googleapis.com/css2?family=Orbitron&display=swap");
 }
 body {
-    background-image: url("./images/arcadebackground.jpg");
+    background-image: url("../images/arcadebackground.jpg");
     background-size: cover;
     color: white;
     font-family: "Orbitron";

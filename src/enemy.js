@@ -12,7 +12,7 @@ class Enemy {
     this.speed = speed;
     //sprites
     this.enemyImg = new Image();
-    this.enemyImg.src = "./images/enemysprite.png"
+    this.enemyImg.src = "./images/enemysprite.png";
     this.frames = 7;
     this.framesIndex = 0;
   }

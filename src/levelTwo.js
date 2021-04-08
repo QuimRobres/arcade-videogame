@@ -28,9 +28,7 @@ class LevelTwo {
     this.canvas = this.levelTwoScreen.querySelector("canvas");
     this.ctx = this.canvas.getContext("2d");
     //-----------CORRECTE------------
-    this.canvasContainer = this.levelTwoScreen.querySelector(
-      ".canvas-container"
-    );
+    this.canvasContainer = this.levelTwoScreen.querySelector(".canvas-container");
     this.containerWidth = 600;
     this.containerHeight = 900;
     this.canvas.setAttribute("width", this.containerWidth);
