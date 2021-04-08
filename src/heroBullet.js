@@ -12,10 +12,10 @@ class Bullet {
 
     //sprites
     this.heroBullet = new Image();
-    this.heroBullet.src = "/images/herobulletsprite.png"
+    this.heroBullet.src = "./images/herobulletsprite.png"
 
     this.enemyBullet = new Image();
-    this.enemyBullet.src = "/images/enemybulletsprite.png"
+    this.enemyBullet.src = "./images/enemybulletsprite.png"
     
     this.frames = 6;
     this.framesIndex = 0;

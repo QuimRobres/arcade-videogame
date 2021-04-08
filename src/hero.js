@@ -14,7 +14,7 @@ class Hero {
     this.speed = 30;
     //sprites
     this.heroImg = new Image();
-    this.heroImg.src = "/images/herosprite.png";
+    this.heroImg.src = "./images/herosprite.png";
     this.frames = 12;
     this.framesIndex = 0;
     //sounds
