@@ -65,10 +65,10 @@ class LevelTwo {
       this.framesCounter++;
       //Spawn enemies-----------
       if (this.enemies.length < 25) {
-        if (Math.random() > 0.97) {
+        if (Math.random() > 0.98) {
           const randomX = Math.floor(Math.random() * this.containerWidth);
           if (randomX < 520) {
-            const newEnemy = new Enemy(this.canvas, randomX, 5);
+            const newEnemy = new Enemy(this.canvas, randomX, 5, 1);
             this.enemies.push(newEnemy);
             this.enemyCounter += 1;
           }
@@ -92,7 +92,7 @@ class LevelTwo {
       });
       this.enemies = this.enemies.filter((enemy) => {
         //funcio dispar enemic
-        if (Math.random() > 0.97) {
+        if (Math.random() > 0.98 && enemy.y < 900) {
           const newEnemyBullet = new Bullet(this.canvas, enemy.x, enemy.y, 1);
           this.bulletEnemy.push(newEnemyBullet);
           this.enemySound.pause();
@@ -100,6 +100,7 @@ class LevelTwo {
           this.enemySound.play();
         }
         enemy.updatePosition();
+        enemy.handleScreenCollision();
         return enemy.isInsideScreen();
       });
 
@@ -132,10 +133,10 @@ class LevelTwo {
       enem = this.enemies[i];
       this.bulletHero.forEach((bullet) => {
         if (enem.isImpacted(bullet)) {
-          enem.x = 0 - enem.size;
-          bullet.x = -20 - bullet.size;
+          enem.y = 912;
+          bullet.y = -6;
           //Add Points if enemy killed;
-          this.score += 15;
+          this.score += 100;
           if (this.score > 2500) {
             this.victory = true;
             this.gameOver();
@@ -151,7 +152,7 @@ class LevelTwo {
       if (this.hero.bulletImpact(bullet)) {
         this.hero.removeHealth();
 
-        bullet.x = 0 - bullet.size;
+        bullet.y = 905;
         if (this.hero.health === 0) {
           this.gameOver();
         }

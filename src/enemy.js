@@ -1,11 +1,13 @@
 class Enemy {
-  constructor(canvas, randomX, speed) {
+  constructor(canvas, randomX, speed, direction) {
     this.canvas = canvas;
     this.ctx = this.canvas.getContext("2d");
 
     this.size = 45;
     this.x = randomX;
     this.y = 0 - this.size;
+
+    this.direction = direction;
 
     this.speed = speed;
     //sprites
@@ -44,9 +46,24 @@ class Enemy {
     }
   }
 
+  handleScreenCollision() {
+    const screenLeft = 0;
+    const screenRight = 600;
+
+    const enemyLeft = this.x;
+    const enemyRight = this.x + this.size;
+
+    if(enemyLeft <= screenLeft) this.direction = 1;
+    if (enemyRight >= screenRight) this.direction = -1;
+  }
+
   updatePosition() {
     // Restamos la dirección para traer a los enemigos des de fuera del canvas hacia adentro
     this.y += this.speed;
+    if (this.direction !== 0) {
+      this.x += this.speed * this.direction
+    }
+    
   }
 
   isImpacted(bullet) {
@@ -73,6 +90,7 @@ class Enemy {
   }
 
   isInsideScreen() {
+    
     const enemyTop = this.y;
     const screenBottom = 950;
     const isInside = enemyTop < screenBottom;

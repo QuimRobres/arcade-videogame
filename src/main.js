@@ -81,8 +81,8 @@ function createLevelTwoScreen() {
         </div>
 
         <div class="score">
-            <pclass="label">POINTS:</p>
-            <span class="value"></span>
+          <span class="label">POINTS:</span>
+          <span class="value"></span>
         </div>
         <div>
         <audio id="hero-shoot-sound" preload="auto" src="sounds/151020__bubaproducer__laser-shot-big-4.wav"></audio>

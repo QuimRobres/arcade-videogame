@@ -4,6 +4,7 @@
 }
 body {
     background-image: url("/images/arcadebackground.jpg");
+    background-size: cover;
     color: white;
     font-family: "Orbitron";
 }
@@ -27,7 +28,9 @@ body button {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;   
+    flex-direction: column;
+    font-size: 1.3em;
+
 }
 
 
@@ -42,7 +45,9 @@ body button {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;    
+    flex-direction: column;   
+    font-size: 1.3em; 
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
 
 
