@@ -1,4 +1,4 @@
-# Arcade Game
+# README
 
 ## Description
 
