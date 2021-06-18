@@ -19,6 +19,7 @@ function createSplashScreen() {
     <main class="splash-screen">
         <h1>ARCADE GAME</h1>
         <button>PLAY</button>
+        <p>Controls: use arrows to move left/right, "Q" to fire.</p>
     </main>
     `);
 
